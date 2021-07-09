@@ -1,0 +1,26 @@
+:root {
+  --primary-color: #fff;
+  --secondary-color: #fff;
+}
+
+/* button */
+.btn {
+  background-color: transparent;
+  border: 3px solid #fff;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 2rem;
+}
+
+/* color */
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-blue {
+  color: #00a2e8;
+}
+
+.text-yellow {
+  color: #ffc90e;
+}
