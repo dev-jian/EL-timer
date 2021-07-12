@@ -1,0 +1,23 @@
+{
+  "name": "el-timer",
+  "version": "1.0.0",
+  "description": "Timer for Effective Learning",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-jian/EL-timer.git"
+  },
+  "keywords": [
+    "timer"
+  ],
+  "author": "Dev Jian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dev-jian/EL-timer/issues"
+  },
+  "homepage": "https://github.com/dev-jian/EL-timer#readme",
+  "devDependencies": {}
+}

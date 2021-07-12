@@ -1,0 +1,50 @@
+:root {
+  --primary-color: #fff;
+  --secondary-color: #fff;
+  --max-width: 1100px;
+  --menu-width: 80%;
+}
+
+/* button */
+.btn {
+  background-color: transparent;
+  border: 3px solid #fff;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 2rem;
+}
+
+.btn:active {
+  background: #fff;
+  color: #333;
+}
+
+/* color */
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+.text-blue {
+  color: #00a2e8;
+}
+
+.text-yellow {
+  color: #ffc90e;
+}
+
+.bg-dark {
+  background: #333;
+  color: #fff;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width);
+}
+
+/* Effect */
+.blur {
+  filter: blur(2px);
+}
