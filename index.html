@@ -10,29 +10,52 @@
   <title>EL Timer | 학습용 타이머</title>
 </head>
 <body>
-  <div class="grid-container">
-    <header class="header">
-      <h2><a href="#" class="logo"><span class="text-blue">E</span><span class="text-yellow">L</span> Timer</a></h2>
-      <div class="toggle">
-        <i class="fas fa-bars fa-2x"></i>
-      </div>
-    </header>
+  <div class="flex-container">
+    <div class="container">
+      <header class="header">
+        <h2><a href="#" class="logo"><span class="text-blue">E</span><span class="text-yellow">L</span> Timer</a></h2>
+        <div class="toggle">
+          <i class="fas fa-bars fa-2x"></i>
+        </div>
+      </header>
+    </div>
 
-    <main class="main">
-      <section class="timer">
-        <h3 class="mode">Mode</h3>
-        <h1 class="time">30:00</h1>
-      </section>
-      <section class="control-panel">
-        <button type="button" class="start btn">Start</button>
-        <button type="button" class="reset btn">Reset</button>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <h4>&copy; 2021. <span class="text-blue">D</span>EV <span class="text-yellow">J</span>IAN</h4>
-      <h4>All rights reserved</h4>
-    </footer>
+    <div class="container">
+      <main class="main">
+        <section class="timer">
+          <div class="mode-container">
+            <h3>MODE</h3>
+            <input type="radio" id="focus" class="mode" name="mode" value="focus">
+            <label for="focus">FOCUS</label>
+            <input type="radio" id="rest" class="mode" name="mode" value="rest">
+            <label for="rest">REST</label>
+          </div>
+          <h1 id="time" class="time">30:00</h1>
+        </section>
+        
+        <section class="control-panel">
+          <button type="button" class="start btn"><i class="fas fa-play"></i> Start</button>
+          <button type="button" class="reset btn">Reset</button>
+        </section>
+      </main>
+    </div>
+    
+    <div class="container">
+      <footer class="footer">
+        <h4>&copy; 2021. <span class="text-blue">D</span>EV <span class="text-yellow">J</span>IAN</h4>
+        <h4>All rights reserved</h4>
+      </footer>
+    </div>
   </div>
+
+  <aside id="menu" class="menu bg-dark">
+    <h3><span class="text-blue">E</span><span class="text-yellow">L</span> Timer</h3>
+    <ul>
+      <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+      <li><a href="#"><i class="fas fa-donate"></i> Donate</a></li>
+    </ul>
+  </aside>
+
+  <script type="module" src="src/app.js"></script>
 </body>
 </html>

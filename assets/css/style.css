@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap');
 
 * {
   margin: 0;
@@ -7,21 +7,31 @@
   font-family: 'Poppins', sans-serif;
 }
 
-/* grid container */
-.grid-container {
+body {
   position: relative;
-  display: grid;
+  min-height: 100vh;
+}
+
+/* grid container */
+.flex-container {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background: #444;
   width: 100%;
   min-height: 100vh;
-  grid-template-areas:
-    'header'
-    'main'
-    'footer';
-  grid-template-rows: 4rem 1fr 4rem;
+  z-index: 10;
+  transition: right 0.4s ease;
 }
 
-.grid-container:before {
+.flex-container.menu-show {
+  right: var(--menu-width);
+}
+
+.flex-container:before {
   content: '';
   position: absolute;
   background: url('https://source.unsplash.com/1600x900/?nature,water')
@@ -33,13 +43,30 @@
 
 /* header */
 .header {
-  grid-area: header;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
   color: #fff;
+}
+
+.header .toggle {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.header .toggle:active {
+  transform: rotate(180deg);
 }
 
 .header .logo {
@@ -49,13 +76,44 @@
 
 /* main */
 .main {
-  grid-area: main;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #fff;
   height: 100%;
+}
+
+/* main - mode */
+.main .mode-container {
+  text-align: center;
+  height: 7rem;
+}
+
+.main .mode-container h3 {
+  letter-spacing: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.main .mode-container label {
+  display: inline-block;
+  font-style: italic;
+  font-weight: bold;
+  color: #bbb;
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
+  margin: 0 1rem;
+  transition: all 0.2s ease;
+}
+
+.main .mode {
+  display: none;
+}
+
+.main .mode-container .mode:checked + label {
+  font-size: 3rem;
+  color: #fff;
 }
 
 /* main - timer */
@@ -75,6 +133,43 @@
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   margin: 0.5rem 1rem;
+}
+
+/* menu */
+#menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--menu-width);
+  height: 100%;
+}
+
+#menu.show {
+  transform: translateX(0);
+}
+
+#menu h3 {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #555;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+#menu ul li {
+  border-bottom: 1px solid #555;
+}
+
+#menu ul li a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
 }
 
 /* footer */
