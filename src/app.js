@@ -6,6 +6,11 @@ const flexContainer = document.querySelector('.flex-container');
 const modeContainer = document.querySelector('.mode-container');
 const menuBtn = document.querySelector('.toggle');
 
+// settings modal
+const settingsModal = document.querySelector('#settings-modal');
+const settingsBtn = document.querySelector('#settings-btn');
+const settingsSaveBtn = document.querySelector('#save-settings');
+
 // Event Listeners
 // init timer
 document.addEventListener('DOMContentLoaded', initTimer);
@@ -21,6 +26,15 @@ modeContainer.addEventListener('click', changeMode);
 
 // click event for menu
 menuBtn.addEventListener('click', clickMenu);
+
+// click event for open settings modal
+settingsBtn.addEventListener('click', openSettingsModal)
+
+// click event for close modal
+document.querySelector('.close').addEventListener('click', closeModal);
+
+// click event for save settings
+settingsSaveBtn.addEventListener('click', saveSettings);
 
 // init timer
 function initTimer() {
@@ -67,4 +81,34 @@ function clickMenu(e) {
     menuBtn.firstElementChild.classList.add('fa-times');
   }
   
+}
+
+// open settings modal
+function openSettingsModal() {
+  settingsModal.style.display = 'flex';
+  
+  document.querySelector('#setting-focus').value = timer.settings.focus / 60;
+  document.querySelector('#setting-rest').value = timer.settings.rest / 60;
+}
+
+// close modal
+function closeModal(e) {
+  const parentModal = e.target.parentElement.parentElement.parentElement;
+  parentModal.style.display = 'none';
+}
+
+// save settings
+function saveSettings(e) {
+  const inputFocus = document.querySelector('#setting-focus').value;
+  const inputRest = document.querySelector('#setting-rest').value;
+
+  const settings = {
+    focus: inputFocus * 60,
+    rest: inputRest * 60
+  }
+
+  timer.changeSettings(settings);
+
+  const parentModal = e.target.parentElement.parentElement.parentElement;
+  parentModal.style.display = 'none';
 }

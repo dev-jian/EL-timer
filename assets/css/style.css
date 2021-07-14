@@ -172,6 +172,15 @@ body {
   padding: 0.8rem 1rem;
 }
 
+/* menu - settings modal */
+#settings-modal .modal-body form .row input {
+  width: 50%;
+}
+
+#settings-modal .modal-body form .form-group {
+  justify-content: center;
+}
+
 /* footer */
 .footer {
   grid-area: footer;

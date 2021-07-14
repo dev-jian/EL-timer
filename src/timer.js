@@ -1,10 +1,13 @@
 class Timer {
   constructor(inputFocus, inputRest) {
-    this.inputFocus = inputFocus;
-    this.inputRest = inputRest;
     this.mode = 'focus';
     this.time = 0;
     this.intervalId = null;
+
+    this.settings = {
+      focus: inputFocus,
+      rest: inputRest
+    };
 
     this.UISelectors = {
       timerUI: document.querySelector('#time'),
@@ -25,13 +28,14 @@ class Timer {
 
   init() {
     if (this.mode == 'focus') {
-      this.time = this.inputFocus;
+      this.time = this.settings.focus;
     } else if(this.mode == 'rest') {
-      this.time = this.inputRest;
+      this.time = this.settings.rest;
     }
 
+    // select mode
     document.querySelector(`.mode[value="${this.mode}"]`).setAttribute('checked', true);
-
+    
     this.render();
   }
 
@@ -64,16 +68,22 @@ class Timer {
   reset() {
     this.pause();
     this.init();
-    this.render();
   }
 
   changeMode(targetMode) {
     this.mode = targetMode;
-    
     this.pause();
     this.init();
-    this.render();
+  }
+
+  changeSettings(settings) {
+    this.settings = {
+      ...settings
+    };
+
+    this.pause();
+    this.init();
   }
 }
 
-export const timer = new Timer(1800, 5);
+export const timer = new Timer(1800, 300);
