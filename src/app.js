@@ -1,15 +1,20 @@
 import { timer } from './timer.js';
 
+// main UIs
 const playBtn = document.querySelector('button.start');
 const resetBtn = document.querySelector('button.reset');
 const flexContainer = document.querySelector('.flex-container');
 const modeContainer = document.querySelector('.mode-container');
 const menuBtn = document.querySelector('.toggle');
 
-// settings modal
+// settings modal UIs
 const settingsModal = document.querySelector('#settings-modal');
 const settingsBtn = document.querySelector('#settings-btn');
 const settingsSaveBtn = document.querySelector('#save-settings');
+
+// Donate modal UIs
+const donateModal = document.querySelector('#donate-modal');
+const donateBtn = document.querySelector('#donate-btn');
 
 // Event Listeners
 // init timer
@@ -28,10 +33,13 @@ modeContainer.addEventListener('click', changeMode);
 menuBtn.addEventListener('click', clickMenu);
 
 // click event for open settings modal
-settingsBtn.addEventListener('click', openSettingsModal)
+settingsBtn.addEventListener('click', openSettingsModal);
+
+// click event for open donate modal
+donateBtn.addEventListener('click', openDonateModal);
 
 // click event for close modal
-document.querySelector('.close').addEventListener('click', closeModal);
+document.querySelector('body').addEventListener('click', closeModal);
 
 // click event for save settings
 settingsSaveBtn.addEventListener('click', saveSettings);
@@ -86,15 +94,22 @@ function clickMenu(e) {
 // open settings modal
 function openSettingsModal() {
   settingsModal.style.display = 'flex';
-  
+
   document.querySelector('#setting-focus').value = timer.settings.focus / 60;
   document.querySelector('#setting-rest').value = timer.settings.rest / 60;
 }
 
+// open donate modal
+function openDonateModal() {
+  donateModal.style.display = 'flex';
+}
+
 // close modal
 function closeModal(e) {
-  const parentModal = e.target.parentElement.parentElement.parentElement;
-  parentModal.style.display = 'none';
+  if (e.target.classList.contains('close')) {
+    const parentModal = e.target.parentElement.parentElement.parentElement;
+    parentModal.style.display = 'none';
+  }
 }
 
 // save settings

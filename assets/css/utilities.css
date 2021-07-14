@@ -3,7 +3,7 @@
   --secondary-color: #fff;
   --blue-color: #00a2e8;
   --yellow-color: #ffc90e;
-  --max-width: 1100px;
+  --max-width: 1000px;
   --menu-width: 80%;
 }
 
@@ -61,7 +61,7 @@
   display: none;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   z-index: 999;
   top: 0;
   left: 0;
@@ -77,7 +77,8 @@
   flex-direction: column;
   background: #fff;
   border-radius: 5px;
-  width: 90%;
+  width: 80%;
+  max-width: 500px;
   padding: 1rem;
   -webkit-animation-name: modalshow;
   -webkit-animation-duration: 0.4s;
@@ -94,6 +95,7 @@
 }
 
 .modal .modal-body {
+  margin-top: 1rem;
 }
 
 .modal .modal-footer {
@@ -105,6 +107,7 @@
 .close {
   color: #aaa;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .close:hover,

@@ -53,7 +53,7 @@
     <ul>
       <!-- Settings Modal Trigger -->
       <li><a href="#" id="settings-btn" class="menu-btn"><i class="fas fa-cog"></i> Settings</a></li>
-      <li><a href="#" class="menu-btn"><i class="fas fa-donate"></i> Donate</a></li>
+      <li><a href="#" id="donate-btn" class="menu-btn"><i class="fas fa-donate"></i> Donate</a></li>
     </ul>
   </aside>
 
@@ -79,8 +79,23 @@
           </div>
         </form>
       </div>
-      <div class="modal-footer ">
+      <div class="modal-footer">
         <button id="save-settings" class="save btn btn-dark">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donate Modal -->
+  <div id="donate-modal" class="modal">
+    <!-- Donate Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-donate"></i> Donate</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/image/donation_qr.jpg" alt="">
+        <a href="https://qr.kakaopay.com/2810060111754963020070051f408456">☕ 따뜻한 커피 한 잔 후원하기</a>
       </div>
     </div>
   </div>
