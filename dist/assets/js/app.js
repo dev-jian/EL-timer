@@ -16,9 +16,16 @@ const settingsSaveBtn = document.querySelector('#save-settings');
 const donateModal = document.querySelector('#donate-modal');
 const donateBtn = document.querySelector('#donate-btn');
 
+// feedback modal UIs
+const feedbackModal = document.querySelector('#feedback-modal');
+const feedbackBtn = document.querySelector('#feedback-btn');
+const feedbackForm = document.querySelector('#feedback-form');
+const submitFeedbackBtn = document.querySelector('#submit-feedback');
+
+
 // Event Listeners
 // init timer
-document.addEventListener('DOMContentLoaded', initTimer);
+document.addEventListener('DOMContentLoaded', init);
 
 // click event for start or pause button
 playBtn.addEventListener('click', playTimer);
@@ -38,14 +45,19 @@ settingsBtn.addEventListener('click', openSettingsModal);
 // click event for open donate modal
 donateBtn.addEventListener('click', openDonateModal);
 
+// click event for open feedback modal
+feedbackBtn.addEventListener('click', openFeedbackModal);
+
+submitFeedbackBtn.addEventListener('click', submitFeedback);
+
 // click event for close modal
 document.querySelector('body').addEventListener('click', closeModal);
 
 // click event for save settings
 settingsSaveBtn.addEventListener('click', saveSettings);
 
-// init timer
-function initTimer() {
+// init
+function init() {
   timer.init();
 }
 
@@ -77,7 +89,7 @@ function changeMode(e) {
   }
 }
 
-// menu button
+// open or close menu
 function clickMenu(e) { 
   if (flexContainer.classList.contains('menu-show')) {
     flexContainer.classList.remove('menu-show');
@@ -104,6 +116,12 @@ function openDonateModal() {
   donateModal.style.display = 'flex';
 }
 
+// open feedback modal
+function openFeedbackModal() {
+  feedbackModal.style.display = 'flex';
+  feedbackForm.reset();
+}
+
 // close modal
 function closeModal(e) {
   if (e.target.classList.contains('close')) {
@@ -126,4 +144,9 @@ function saveSettings(e) {
 
   const parentModal = e.target.parentElement.parentElement.parentElement;
   parentModal.style.display = 'none';
+}
+
+// submit feedback to netlify
+function submitFeedback() {
+  feedbackForm.submit();
 }

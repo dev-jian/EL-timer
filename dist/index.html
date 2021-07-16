@@ -37,6 +37,8 @@
           <button type="button" class="start btn"><i class="fas fa-play"></i> Start</button>
           <button type="button" class="reset btn">Reset</button>
         </section>
+
+        <audio id="beep" src="./assets/audio/beep.mp3" type="audio/mpeg"></audio>
       </main>
     </div>
     
@@ -48,14 +50,88 @@
     </div>
   </div>
 
+  <!-- Menu -->
   <aside id="menu" class="menu bg-dark">
     <h3><span class="text-blue">E</span><span class="text-yellow">L</span> Timer</h3>
     <ul>
-      <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-      <li><a href="#"><i class="fas fa-donate"></i> Donate</a></li>
+      <!-- Settings Modal Trigger -->
+      <li><a href="#" id="settings-btn" class="menu-btn"><i class="fas fa-cog"></i> Settings</a></li>
+      <!-- Donate Modal Trigger -->
+      <li><a href="#" id="donate-btn" class="menu-btn"><i class="fas fa-donate"></i> Donate</a></li>
+      <!-- Feedback Modal Trigger -->
+      <li><a href="#" id="feedback-btn" class="menu-btn"><i class="fas fa-comment-medical"></i> Feedback</a></li>
     </ul>
   </aside>
 
-  <script type="module" src="src/app.js"></script>
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal">
+    <!-- Settings Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-cog"></i> Settings</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row py-3">
+            <div class="form-group">
+              <label for="settings-focus">Focus (Mins)</label>
+              <input type="number" id="setting-focus">
+            </div>
+            <div class="form-group">
+              <label for="rest-time">Rest (Mins)</label>
+              <input type="number" id="setting-rest">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="save-settings" class="save btn btn-dark">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donate Modal -->
+  <div id="donate-modal" class="modal">
+    <!-- Donate Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-donate"></i> Donate</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <img src="./assets/image/donation_qr.jpg" alt="">
+        <a href="https://qr.kakaopay.com/2810060111754963020070051f408456">☕ 따뜻한 커피 한 잔 후원하기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback Modal -->
+  <div id="feedback-modal" class="modal">
+    <!-- Feedback Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-comment-medical"></i> Feedback</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="feedback-form" name="contact" method="POST" data-netlify="true">
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input name="email" type="email">
+          </div>
+          <div class="form-group">
+            <label for="feedback">Feedback</label>
+            <textarea name="feedback" id="feedback"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="submit-feedback" class="submit btn btn-dark">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./assets/js/app.js"></script>
 </body>
 </html>

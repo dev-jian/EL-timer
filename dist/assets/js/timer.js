@@ -3,7 +3,6 @@ class Timer {
     this.mode = 'focus';
     this.time = 0;
     this.intervalId = null;
-
     this.settings = {
       focus: inputFocus,
       rest: inputRest
@@ -11,7 +10,8 @@ class Timer {
 
     this.UISelectors = {
       timerUI: document.querySelector('#time'),
-      playBtn: document.querySelector('.start')
+      playBtn: document.querySelector('.start'),
+      beep: document.querySelector('#beep')
     }
   }
 
@@ -45,8 +45,8 @@ class Timer {
       this.time = this.time - 1;
       this.render();
       if (this.time === 0) {
-        clearInterval(this.intervalId);
-        alarms.create('test', null);
+        this.reset();
+        this.UISelectors.beep.play();
       }
     }, 1000);
 
